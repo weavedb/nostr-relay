@@ -148,8 +148,17 @@ export default function Home() {
                     nostr-relay &&{" "}
                     <Box as="span" color="#BC98FB">
                       yarn
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Box as="span" color="#BC98FB">
+                      yarn
                     </Box>{" "}
-                    run-nostr-relay
+                    gen-config &&{" "}
+                    <Box as="span" color="#BC98FB">
+                      yarn
+                    </Box>{" "}
+                    run-relay
                   </Box>
                 </Box>
               </Flex>
