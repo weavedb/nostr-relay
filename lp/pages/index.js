@@ -121,7 +121,7 @@ export default function Home() {
                 </Flex>
               </Box>
             </Flex>
-            <Flex flex={1} direction="column" justify="center">
+            <Flex flex={1} direction="column" justify="center" fontSize="14px">
               <Box mx={2} fontWeight="bold" color="#9543DC">
                 Deploy a Nostr Relay
               </Box>
@@ -162,6 +162,67 @@ export default function Home() {
                   </Box>
                 </Box>
               </Flex>
+              <Box mx={2} fontWeight="bold" color="#9543DC" mt={2}>
+                Set up and Run a Nostr Client
+              </Box>
+              <Flex w="100%">
+                <Box
+                  flex={1}
+                  m={2}
+                  as="code"
+                  style={{ borderRadius: "5px" }}
+                  color="white"
+                  bg="#2B2B2B"
+                  p={4}
+                >
+                  <Box>
+                    <Box as="span" color="#BC98FB">
+                      cd
+                    </Box>{" "}
+                    nostr-relay &&{" "}
+                    <Box as="span" color="#BC98FB">
+                      yarn
+                    </Box>{" "}
+                    setup
+                  </Box>
+                  <Box>
+                    <Box as="span" color="#BC98FB">
+                      cd
+                    </Box>{" "}
+                    client &&{" "}
+                    <Box as="span" color="#BC98FB">
+                      yarn
+                    </Box>{" "}
+                    dev
+                  </Box>
+                </Box>
+              </Flex>
+              <Box mx={2} mt={2}>
+                Now a Nostr client is running at{" "}
+                <Box
+                  fontWeight="bold"
+                  as="a"
+                  href="http://localhost:3000"
+                  target="_blank"
+                  color="#BC98FB"
+                >
+                  localhost:3000
+                </Box>
+                .
+              </Box>
+              <Box mx={2} mt={2}>
+                View events on WeaveDB Scan at{" "}
+                <Box
+                  as="a"
+                  fontWeight="bold"
+                  target="_blank"
+                  href="https://scan.weavedb.dev/node/localhost/db/nostr"
+                  color="#BC98FB"
+                >
+                  scan.weavedb.dev/node/localhost/db/nostr
+                </Box>
+                .
+              </Box>
             </Flex>
           </Flex>
           <Flex justify="center" id="censorship-resistance">
@@ -396,7 +457,7 @@ export default function Home() {
           </Flex>
           <Flex
             id="queries"
-            my={6}
+            mt={6}
             w="100%"
             fontWeight="bold"
             fontSize="30px"
@@ -404,6 +465,10 @@ export default function Home() {
             justify="center"
           >
             Powerful Queries for Nostr Clients
+          </Flex>
+          <Flex justify="center" my={3}>
+            DB indexers are all onchain, which provides permanent APIs to client
+            dapps.
           </Flex>
           <Flex justify="center">
             <Image src="/code.png" maxW="750px" w="100%" />
