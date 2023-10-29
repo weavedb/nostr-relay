@@ -122,8 +122,8 @@ export default function Home() {
               </Box>
             </Flex>
             <Flex flex={1} direction="column" justify="center" fontSize="14px">
-              <Box mx={2} fontWeight="bold" color="#9543DC">
-                Deploy a Nostr Relay
+              <Box mt={2} mx={2} fontWeight="bold" color="#9543DC">
+                Deploy a Nostr Relay (Docker Compose & NodeJS required)
               </Box>
               <Flex w="100%">
                 <Box
@@ -204,7 +204,7 @@ export default function Home() {
                   as="a"
                   href="http://localhost:3000"
                   target="_blank"
-                  color="#BC98FB"
+                  color="#9543DC"
                 >
                   localhost:3000
                 </Box>
@@ -217,7 +217,7 @@ export default function Home() {
                   fontWeight="bold"
                   target="_blank"
                   href="https://scan.weavedb.dev/node/localhost/db/nostr"
-                  color="#BC98FB"
+                  color="#9543DC"
                 >
                   scan.weavedb.dev/node/localhost/db/nostr
                 </Box>
