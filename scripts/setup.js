@@ -46,21 +46,40 @@ const main = async key => {
       instance = v.data
     }
   }
+  let contractTxId = null
   if (isNil(instance)) {
     console.error(`DB not found: ${name}`)
     process.exit()
+  } else if (!isNil(instance.contractTxId)) {
+    contractTxId = instance.contractTxId
+  } else {
+    const tx = await _db.admin(
+      {
+        op: "deploy_contract",
+        key: name,
+      },
+      { privateKey, nonce: 1 }
+    )
+    if (!isNil(tx.contractTxId)) {
+      console.log("DB successfully deployed!")
+      console.log(tx)
+      contractTxId = tx.contractTxId
+    } else {
+      console.log("something went wrong!")
+    }
   }
-  const db = new SDK({
-    rpc: rpc.url,
-    contractTxId: `${instance.contractTxId ?? name}`,
-  })
-  await setup({
-    db,
-    conf: settings,
-    privateKey: accounts.evm[owner]?.privateKey,
-    relayer: null,
-  })
-
+  if (!isNil(contractTxId)) {
+    const db = new SDK({
+      rpc: rpc.url,
+      contractTxId,
+    })
+    await setup({
+      db,
+      conf: settings,
+      privateKey: accounts.evm[owner]?.privateKey,
+      relayer: null,
+    })
+  }
   process.exit()
 }
 
