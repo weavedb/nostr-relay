@@ -33,12 +33,7 @@ export default function EditUser({
     setIcon(null)
     setCoverIcon(null)
   }, [user])
-  const ok =
-    isNil(taken[handle.toLowerCase()]) &&
-    handle.length >= 2 &&
-    name.length > 0 &&
-    text.length < 140 &&
-    !updating
+  const ok = name.length > 0 && text.length < 140 && !updating
   return !editUser ? null : (
     <Flex
       h="100%"
