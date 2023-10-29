@@ -7,6 +7,9 @@ const config_path = resolve(
   __dirname,
   "../grpc-node/node-server/weavedb.standalone.config.js"
 )
+
+const env_path = resolve(__dirname, "../client/.env.local")
+
 if (existsSync(config_path)) {
   console.log("config already exists")
   process.exit()
@@ -30,6 +33,7 @@ const main = async () => {
         tick: 1000 * 60 * 5,
         initial_state: { nostr: "nostr_events" },
         app: "https://localhost:3000",
+        rollup: true,
       },
     },
   }
@@ -50,6 +54,15 @@ const main = async () => {
   )
   const keyfile2 = resolve(dir, "ar", `${name}.json`)
   writeFileSync(keyfile2, JSON.stringify(bundler))
+
+  const env = [
+    'NEXT_PUBLIC_EXPLORER="https://scan.weavedb.dev/node/localhost/db/nostr"',
+    'NEXT_PUBLIC_RPC="http://localhost:8080"',
+    'NEXT_PUBLIC_WS="ws://localhost:4736"',
+    'RPC="localhost:8080"',
+    'NEXT_PUBLIC_TXID="nostr"',
+  ]
+  writeFileSync(env_path, env.join("\n"))
 }
 
 main()
