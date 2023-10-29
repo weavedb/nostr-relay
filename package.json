@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "gen-config": "node scripts/gen-config.js",
-    "run-relay": "cd grpc-node && sudo docker-compose -f docker-compose-standalone.yml up --build"
+    "run-relay": "cd grpc-node && sudo docker-compose -f docker-compose-standalone.yml up --build",
+    "setup": "node scripts/setup.js nostr --owner nostr"
   },
   "dependencies": {
-    "eth-crypto": "^2.6.0"
+    "eth-crypto": "^2.6.0",
+    "weavedb-node-client": "^0.34.0"
   }
 }
