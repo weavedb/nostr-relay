@@ -1,0 +1,13 @@
+{
+  "name": "nostr-relay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "gen-config": "node scripts/gen-config.js",
+    "run-relay": "cd grpc-node && sudo docker-compose -f docker-compose-standalone.yml up --build"
+  },
+  "dependencies": {
+    "eth-crypto": "^2.6.0"
+  }
+}
